@@ -1,0 +1,462 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<!--It specifies the encoding of your page-->
+	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+	<!--Specifies the content of the page language-->
+	<meta http-equiv="content-language" content="ru" />
+	<!--Write down a few key words (no more than 10)-->
+	<meta name="Keywords" content="meta-теги" />
+	<!--Enter the essence of the page content-->
+	<meta name="Description" content="Описание необходимых мета-тегов." />
+	<title>Венеция по-русски</title>
+	<link rel="stylesheet" href="css/style.css">
+	<script src="jquery-1.7.2.min.js"></script>
+</head>
+<body>
+<script>
+
+/*
+hwSlideSpeed - the speed of the slide transition animations.
+hwTimeOut - time before the automatic turning slide.
+hwNeedLinks - It enables or disables the display of links "next - previous." True or false
+*/
+(function ($) {
+var hwSlideSpeed = 1200;
+var hwTimeOut = 5000;
+var hwNeedLinks = true;
+
+$(document).ready(function(e) {
+	$('.slide').css(
+		{"position" : "absolute",
+		 "top":'0', "left": '0'}).hide().eq(0).show();
+	var slideNum = 0;
+	var slideTime;
+	slideCount = $("#slider .slide").size();
+	var animSlide = function(arrow){
+		clearTimeout(slideTime);
+		$('.slide').eq(slideNum).fadeOut(hwSlideSpeed);
+		if(arrow == "next"){
+			if(slideNum == (slideCount-1)){slideNum=0;}
+			else{slideNum++}
+			}
+		else if(arrow == "prew")
+		{
+			if(slideNum == 0){slideNum=slideCount-1;}
+			else{slideNum-=1}
+		}
+		else{
+			slideNum = arrow;
+			}
+		$('.slide').eq(slideNum).fadeIn(hwSlideSpeed, rotator);
+		$(".control-slide.active").removeClass("active");
+		$('.control-slide').eq(slideNum).addClass('active');
+		}
+	var $adderSpan = '';
+	$('.slide').each(function(index) {
+			$adderSpan += '<span class = "control-slide">' + index + '</span>';
+		});
+	$('<div class ="sli-links">' + $adderSpan +'</div>').appendTo('#slider-wrap');
+	$(".control-slide:first").addClass("active");
+	$('.control-slide').click(function(){
+	var goToNum = parseFloat($(this).text());
+	animSlide(goToNum);
+	});
+	var pause = false;
+	var rotator = function(){
+			if(!pause){slideTime = setTimeout(function(){animSlide('next')}, hwTimeOut);}
+			}
+	rotator();
+});
+})(jQuery);
+
+</script>
+<script>
+
+var markerManagerOptions = {
+icon: {
+src: "img/bg-num.png",
+},
+cell: {
+width: 48,
+height: 96
+},
+threshold: 12,
+sanity: 1.5
+};
+
+var markerManager = new GmapsMarkerManager(map, markerManagerOptions);
+var marker = new google.maps.Marker({position: new google.maps.LatLng(45.4371, 12.3327)});
+markerManager.addMarker(marker);
+
+    </script>
+
+<div id="main">
+	<div id="slider-wrap">
+		<div id="slider">
+			<div class="slide"> <!--The contents of the first slider block-->
+					
+				<img src="img/001.png" width="1400" height="835">
+
+				<div style="width: 1400px; height: 835px; position: absolute; top: 0; left: 0; background: black; opacity: 0.5;"></div> <!--blackout-->
+
+				<div class="content-abs-logo"> <!-- Logo -->
+					<img src="img/logo2.png">
+				</div>
+				
+				<div class="content-abs-text-1">
+					<p>Большой Канал</p>
+				</div>
+
+				<div class="content-abs-text-2">
+					<p>Приятно освежит в любое время суток и года туриста  это водное развлечение.<br/>
+					На катере, в сопровождении лицензированного опытного  гида, мы отправляемся на знакомство с  Венецией по<br/> 
+					знаменитой внутренней водной артерии. </p>
+				</div>
+
+				<div class="content-abs-button">
+					<div class="content-abs-button-1" onclick="location.href='#'">
+						<ul>
+		           			<li>
+		           				<a href="#">Подробнее</a>
+		           			</li>
+		         		</ul>
+		        	</div>
+		        </div>
+			</div>
+
+			<div class="slide"> <!--The contents of the second slider block-->
+
+				<img src="img/002.png" width="1400" height="835">
+
+				<div style="width: 1400px; height: 835px; position: absolute; top: 0; left: 0; background: black; opacity: 0.5;"></div><!--blackout-->
+
+				<div class="content-abs-logo"> <!-- Logo -->
+					<img src="img/logo2.png">
+				</div>
+				
+				<div class="content-abs-text-1">
+					<p>Lorem ipsum</p>
+				</div>
+
+				<div class="content-abs-text-2">
+					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt<br/> 
+					ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco<br/> 
+					laboris nisi ut aliquip ex ea commodo consequat. </p>
+				</div>
+
+				<div class="content-abs-button">
+					<div class="content-abs-button-1" onclick="location.href='#'">
+						<ul>
+		          			<li>
+		           				<a href="#">Подробнее</a>
+		          			</li>
+		        		</ul>
+		      		</div>
+		    	</div>
+			</div>
+
+			<div class="slide"> <!--The contents of the third slider block-->
+
+				<img src="img/003.png" width="1400" height="835">
+
+				<div style="width: 1400px; height: 835px; position: absolute; top: 0; left: 0; background: black; opacity: 0.5;"></div><!--blackout-->
+
+				<div class="content-abs-logo"> <!-- Logo -->
+					<img src="img/logo2.png">
+				</div>
+				
+				<div class="content-abs-text-1">
+					<p>Quis autem</p>
+				</div>
+
+				<div class="content-abs-text-2">
+					<p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. <br/> 
+					Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est <br/> 
+					laborumtut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation. </p>
+				</div>
+
+				<div class="content-abs-button">
+					<div class="content-abs-button-1" onclick="location.href='#'">
+						<ul>
+				          <li>
+				           	<a href="#">Подробнее</a>
+				          </li>
+				        </ul>
+		      		</div>
+		    	</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="content-abs-text-3">
+		<p>Оформление заявки</p>
+	</div>
+
+	<div class="content-abs-text-4">
+		<p>Оставьте свой номер телефона и мы обязательно Вам перезвоним в ближайшее время</p>
+	</div>
+
+	<div class="content-abs-button-3" onclick="location.href='#'"> <!-- button for order tours; onclick="location.href='#' makes the whole link button, link to write here.-->
+		<ul>
+	        <li><a href="#">Заказать экскурсию</a></li>
+	    </ul>
+	</div>
+						
+	 <form name="test" method="post" action="input1.php"><!-- Form for Full name -->
+	  	<p>
+	   		<input type="text" class="input1 input1-margin1" placeholder="Ваше имя">
+	  	</p>
+	 </form>
+
+	<form name="test" method="post" action="input1.php"><!-- Form for telefon number -->
+		<p>
+			<input type="number" max="20" class="input1 input1-margin2" placeholder="Ваш телефон">
+		</p>
+	</form>
+
+	<div class="content-abs-fon"><!-- Div with foto under the form-->
+		<div class="content-abs-fon-darkness-2" ><!--blackout-->
+		</div>
+		<img src="img/Foto4.png">
+	</div>
+
+	<div id="map"><!-- google map-->
+		<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d179275.0033319669!2d12.241317284141674!3d45.40587251801627!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x477eb1daf1d63d89%3A0x7ba3c6f0bd92102f!2z0JLQtdC90LXRhtC40Y8sINCY0YLQsNC70LjRjw!5e0!3m2!1sru!2sru!4v1459419617885" width="1400" height="470" frameborder="0" style="border:0" allowfullscreen></iframe>
+	</div>
+
+	<div class="content-recall-text"><!-- text to photos in a review-->
+		<p class="content-recall-text1">Rialto Bridge</p>
+		<p class="content-recall-text2">. . . . . . . . . . . . . . . . . . . . . . . . . . . . .</p>
+		<p class="content-recall-text3">Впервые в Венеции</p>
+	</div>
+
+	<div class="content"><!-- Content without position:absolute -->
+		<div class="content-nav"> <!-- Header -->
+			<ul>
+	            <li><a href="#">Главная</a></li>
+				<li><a href="#">Экскурсии по Венеции</a></li>
+				<li><a href="#">Гид</a></li>
+				<li><a href="#">Впервые в Венеции</a></li>
+				<li><a href="#">Цены</a></li>
+				<li><a href="#">Фотогалерея</a></li>
+	        </ul>
+		</div>
+
+		<div class="content-guide-foto"> <!-- Foto with guide -->
+			<img src="img/gid2.png">
+		</div>
+
+		<div class="content-guide-info"> <!-- information about guide -->
+			<p class="grey-dark fs-36">Мария Горлукович</p><br/>
+			<p class="content-guide-info-1 grey fs-20">Гид-экскурсовод</p>.
+			<img src="img/call.png" class="content-guide-info-2">
+			<p class="content-guide-info-3 grey-dark fs-20">+39 340 7062651</p><br/>
+			<p class="content-guide-info-4 grey-dark fs-16">Я поселилась в окрестностях Венеции, на побережье Адриатики в 1994 г. С переменой места произошло и<br/> небольшое, но очень приятное изменение в виде занятости...</p><br/>
+			<div class="button-shell">
+				<button class="button button--wapasha button--round-s" onclick="location.href='#'">
+					Подробнее
+				</button>
+        	</div>	
+		</div>
+
+		<div class="content-separator"> <!-- div deparator -->
+            <div class="content-separator-band"></div> <!-- band-->
+            <div class="content-separator-circle"></div> <!-- circle-->
+            <div class="content-separator-band"></div>
+        </div>
+
+        <div class="content-text-5">
+			<p>Экскурсии по Венеции</p>
+		</div>
+
+		<div class="content-excurs"><!-- Excursions -->
+
+			<div class="content-excurs-ex"><!-- Part 1 of Excursions -->
+				<img src="img/Photo1.png">
+				<p class="grey-dark mar-t-25 fs-28">Музыкальная Венеция</p>
+				<div class="content-excurs-ex-time"><!-- div with time -->
+					<img src="img/clock.png" class="fl"><!-- icon with clock -->
+					<p class="fs-36 grey">2-3 часа</p>
+				</div>
+
+				<div class="content-excurs-ex-stars"><!-- div with Icons stars -->
+					<img src="img/favorite.png" class="fl">
+					<img src="img/favorite.png" class="mar-l-8 fl">
+					<img src="img/favorite.png" class="mar-l-8 fl">
+					<img src="img/favorite.png" class="mar-l-8 fl">
+					<img src="img/favorite.png" class="mar-l-8 fl">
+				</div>
+
+				<div class="content-excurs-ex-point"><!-- Points of excursions-->
+					<img src="img/directional.png" class="fl">
+					<p class="content-excurs-ex-point-text">По местам Антонио Вивальди</p>
+				</div>
+
+				<div class="content-excurs-ex-point">
+					<img src="img/directional.png" class="fl">
+					<p class="content-excurs-ex-point-text">Вагнер и Венеция</p>
+				</div>
+
+				<div class="content-excurs-ex-point">
+					<img src="img/directional.png" class="fl">
+					<p class="content-excurs-ex-point-text">Прогулка по музыкальной Венеции</p>
+				</div>
+			</div>
+
+			<div class="content-excurs-ex mar-l-59"><!-- Part 2 of Excursions -->
+				<img src="img/Photo2.png">
+				<p class="grey-dark mar-t-25 fs-28">Монастырские церкви</p>
+				<div class="content-excurs-ex-time">
+					<img src="img/clock.png" class="fl">
+					<p class="fs-36 grey">3 часа</p>
+				</div>
+
+				<div class="content-excurs-ex-stars">
+					<img src="img/favorite.png" class="fl">
+					<img src="img/favorite.png" class="mar-l-8 fl">
+					<img src="img/favorite.png" class="mar-l-8 fl">
+					<img src="img/favorite.png" class="mar-l-8 fl">
+					<img src="img/favorite.png" class="mar-l-8 fl">
+				</div>
+
+				<div class="content-excurs-ex-point">
+					<img src="img/directional.png" class="fl">
+					<p class="content-excurs-ex-point-text">Сан Джованни и Паоло</p>
+				</div>
+
+				<div class="content-excurs-ex-point">
+					<img src="img/directional.png" class="fl">
+					<p class="content-excurs-ex-point-text">Сан Франческо делла Винья</p>
+				</div>
+
+				<div class="content-excurs-ex-point">
+					<img src="img/directional.png" class="fl">
+					<p class="content-excurs-ex-point-text">Санта Мария Глориоза деи Фрари</p>
+				</div>
+
+				<div class="content-excurs-ex-point">
+					<img src="img/directional.png" class="fl">
+					<p class="content-excurs-ex-point-text">Сан Джорджио Маджиоре</p>
+				</div>
+
+				<div class="content-excurs-ex-point">
+					<img src="img/directional.png" class="fl">
+					<p class="content-excurs-ex-point-text">Церковь Святого Захария</p>
+				</div>
+
+				<div class="content-excurs-ex-point">
+					<img src="img/directional.png" class="fl">
+					<p class="content-excurs-ex-point-text">Санто Стэфано</p>
+				</div>
+
+				<div class="content-excurs-ex-point">
+					<img src="img/directional.png" class="fl">
+					<p class="content-excurs-ex-point-text">Сан Сальвадор</p>
+				</div>
+
+				<div class="content-excurs-ex-point">
+					<img src="img/directional.png" class="fl">
+					<p class="content-excurs-ex-point-text">Церковь дей Кармини</p>
+				</div>
+
+				<div class="content-excurs-ex-point">
+					<img src="img/directional.png" class="fl">
+					<p class="content-excurs-ex-point-text">Санта Мария Ассунта дей Иезуитов</p>
+				</div>
+			</div>
+
+			<div class="content-excurs-ex mar-l-59"><!-- Part 3 of Excursions -->
+				<img src="img/Photo3.png">
+				<p class="grey-dark mar-t-25 fs-28">Четыре Больницы</p>
+				<div class="content-excurs-ex-time">
+					<img src="img/clock.png" class="fl">
+					<p class="fs-36 grey">4 часа</p>
+				</div>
+
+				<div class="content-excurs-ex-stars">
+					<img src="img/favorite.png" class="fl">
+					<img src="img/favorite.png" class="mar-l-8 fl">
+					<img src="img/favorite.png" class="mar-l-8 fl">
+					<img src="img/favorite.png" class="mar-l-8 fl">
+					<img src="img/favorite.png" class="mar-l-8 fl">
+				</div>
+
+				<div class="content-excurs-ex-point">
+					<img src="img/directional.png" class="fl">
+					<p class="content-excurs-ex-point-text">Древний приют Мендиканти </p>
+				</div>
+
+				<div class="content-excurs-ex-point">
+					<img src="img/directional.png" class="fl">
+					<p class="content-excurs-ex-point-text">Приют Дерелитти (Оспедалетто)</p>
+				</div>
+
+				<div class="content-excurs-ex-point">
+					<img src="img/directional.png" class="fl">
+					<p class="content-excurs-ex-point-text">Приют Пьета</p>
+				</div>
+
+				<div class="content-excurs-ex-point">
+					<img src="img/directional.png" class="fl">
+					<p class="content-excurs-ex-point-text">Приют Инкурабили</p>
+				</div>
+			</div>
+		</div>
+
+		<div class="content-recall-head"> <!-- Div with recalls -->
+			<p class="center">Отзывы</p>
+		
+
+			<div class="content-recall-part1">
+				<div class="content-recall-part1-1">
+					<img src="img/avatar.png" class="fl">
+					<div class="content-recall-part1-text1">
+						<p class="fs-30">Adriano Celentano</p>
+					</div>
+
+					<div class="content-recall-part1-data">
+						<p class="content-recall-part1-text2">20.06.2015</p>
+					</div>
+
+					<div class="content-recall-part1-text3">
+						<p>Хороший гид! И экскурсии интересные... Обязательно прилечу в <br/> Венецию на следующий отпуск! </p>
+					</div>
+				</div>
+			</div>
+
+			<div class="content-recall-foto">
+				<img src="img/Foto5.png" class="content-recall-foto-marg">
+				<div class="content-recall-darkness-2"></div>
+			</div>
+		</div>
+
+		<div class="content-contact">
+			<div class="content-contact-data">
+				<p class="fs-24 grey-333">Горлукович Мария</p>
+				<p class="fl fs-16 mar-t-18">Телефон:+393407062651</p>
+				<p class="fl fs-16 mar-t-18">E-mail: <a href="#" class="e-mail">mgorlukovich@yandex.ru</a></p>
+				<p class="fl fs-16 mar-t-80">©2015 Венеция по-русски. Все права защищены</p>
+			</div>
+
+			<div class="content-contact-links">
+				<a href="#"><p class="fl fs-16 grey-333">Цены на экскурсии</p></a>
+				<a href="#"><p class="fl fs-16 grey-333 mar-t-19">Партнеры</p></a>
+				<a href="#"><p class="fl fs-16 grey-333 mar-t-19">Полезная информация </p></a>
+				<a href="#"><p class="fl fs-16 grey-333 mar-t-19">Экскурсии по Венеции </p></a>
+				<a href="#"><p class="fl fs-16 grey-333 mar-t-19">Впервые в Венеции </p></a>
+				<a href="#"><p class="fl fs-16 grey-333 mar-t-19">Фотогалерея </p></a>
+			</div>
+
+			<div class="content-contact-socials"><!-- Links to social contacts-->
+				<a href="#"><img src="img/icon_youtube.png"></a>
+				<a href="#" class="fl mar-r-15"><img src="img/icon_twitter.png"></a>
+				<a href="#" class="fl mar-r-15"><img src="img/icon_vk.png"></a>
+				<a href="#" class="fl mar-r-15"><img src="img/icon_facebook.png"></a>
+				<a href="#" class="fl mar-r-15"><img src="img/icon_google+.png"></a>
+			</div>
+		</div>
+	</div>	
+</div>
+</body>
+</html>
